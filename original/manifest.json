@@ -1,0 +1,23 @@
+{
+	"manifest_version": 2,
+    "name": "my extension",
+    "version": "1.0",
+    "browser_action": {
+        "default_popup" : "html_sketch.html"
+    },
+    "content_scripts": [
+    {
+    "matches": [
+    "<all_urls>"
+    
+    ],
+        
+        "js": ["addons/p5.js","addons/p5.dom.js", "sketch.js"]
+    
+    }],
+"permissions": 
+[
+    "activeTab"
+]
+
+}

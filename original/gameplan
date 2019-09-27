@@ -1,0 +1,26 @@
+ideas on how to solve the injkection problem I'm facing. 29.6.19:
+
+
+1. get the dom element that the selected text is in, and edit its inner html 
+1.1 in which way will you be editing the innerhtml of the selected text's parent object ? which functions will you be using ? 
+
+
+as I've thought of it, there are a few steps to the process.
+
+
+first, there's the copying of the text you would like to translate.
+second, you can choose extension copy vs regular old copy. ctrl-c vs ? 
+third, once you use the extension copy an information box pops up where you started/ended copying.
+
+
+
+first: there are 2 events associated with the selection of text, mousedown and mouseup.
+second: look  up how to add custom keyboard in a chrome-extension.
+third: embed a popover next to the selected text.
+
+second: make this last - attack an extension to handle an event of using keyboardboard event.
+
+
+third: make a simple webpage with some text on the localhost.
+	1. get the dom element in which the selected text lies in.
+	2. modify the color of the selected text.

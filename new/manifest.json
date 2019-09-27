@@ -1,0 +1,40 @@
+{
+	"manifest_version": 2,
+    "name": "berlin-developement",
+    "version": "1.0",
+    "browser_action": {
+        "default_popup" : "popup.html"
+    },
+    "background": {
+        "scripts": ["background.js"],
+        "persistent" : true
+    },
+    "commands": {
+        "Open-Choice" : {
+            "suggested_key" : {
+                "default" : "Ctrl+Shift+1"
+            },
+            "description" : "special copy - adds to deck",
+            "global" : true
+        }
+    },
+    "content_scripts": [
+    {
+    "matches": [
+    "<all_urls>"
+    
+    ],
+        
+        "js": ["libraries/jquery/dist/jquery.min.js" ,"libraries/jquery/dist/jquery.js", "libraries/bootstrap/js/bootstrap.js","cs2.js"],
+        "css" : ["cs.css"]
+    }],
+"permissions": 
+    [
+    "activeTab"
+    ],
+    "web_accessible_resources": [
+        "canvas.js",
+        "cs.css"
+    ]
+}
+
