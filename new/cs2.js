@@ -1,3 +1,5 @@
+// TESTING OUT DOM MANIPULATION
+
 // content script second try
 function calculate_coordinates(bX, bY, aX, aY){
   const rX = bX - aX;

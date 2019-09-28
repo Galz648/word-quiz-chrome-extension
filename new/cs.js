@@ -1,4 +1,4 @@
-
+// TESTING OUT DOM MANIPULATION
 
 // this is the content script of the chrome-extension. 
 // the content script is responsible for handling the selection/copy event.

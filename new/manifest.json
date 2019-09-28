@@ -25,12 +25,13 @@
     
     ],
         
-        "js": ["libraries/jquery/dist/jquery.min.js" ,"libraries/jquery/dist/jquery.js", "libraries/bootstrap/js/bootstrap.js","cs2.js"],
+        "js": ["libraries/jquery/dist/jquery.min.js" ,"libraries/jquery/dist/jquery.js", "content_script.js"],
         "css" : ["cs.css"]
     }],
 "permissions": 
     [
-    "activeTab"
+    "activeTab",
+    "http://localhost:/*"
     ],
     "web_accessible_resources": [
         "canvas.js",
