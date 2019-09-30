@@ -1,0 +1,8 @@
+2019-09-30 23:49:20,058 | INFO ->  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-09-30 23:49:49,970 | INFO ->  user-selection : async
+2019-09-30 23:49:49,978 | INFO -> 127.0.0.1 - - [30/Sep/2019 23:49:49] "POST /api?word=async HTTP/1.1" 200 -
+2019-09-30 23:51:38,171 | INFO ->  user-selection : actually your code can be improved like
+2019-09-30 23:51:38,175 | INFO -> 127.0.0.1 - - [30/Sep/2019 23:51:38] "POST /api?word=actually%20your%20code%20can%20be%20improved%20like HTTP/1.1" 200 -
+2019-09-30 23:51:47,414 | INFO ->  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-09-30 23:51:54,675 | INFO ->  user-selection : getDevices
+2019-09-30 23:51:54,684 | INFO -> 127.0.0.1 - - [30/Sep/2019 23:51:54] "POST /api?word=getDevices HTTP/1.1" 200 -

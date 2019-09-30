@@ -1,30 +1,47 @@
 # python flask api
 from flask import Flask, jsonify, request
 from flask_cors import CORS
+from os import system
+import logging
+# delete so the chrome extension will load
+system('rm -rf __pycache__')
 
-
-
-
+# Flask app setup
 app = Flask(__name__)
-cors = CORS(app, resources={r"/*": {"origins": "*"}})
+# Cross-origin resource sharing
+CORS(app)
+
+# Create and configure logger
+LOG_FILE = 'chrome_extension.log'
+LOG_FORMAT = '%(asctime)s | %(levelname)s -> %(message)s'
+logging.basicConfig(
+            filename = LOG_FILE,
+            level = logging.INFO, 
+            format = LOG_FORMAT)
+
+logger = logging.getLogger(__name__)
 
 
-@app.route('/', methods=['POST'])
+# creating a handler to log on the console
+stream_handler = logging.StreamHandler()
+stream_handler.setFormatter(LOG_FORMAT)
+stream_handler.setLevel(logging.INFO)
+
+@app.route('/arguments', methods=['GET'])
+def test_route():
+   return jsonify({'message': 'true'})
+
+@app.route('/api', methods=['POST'])
 def post_word():
     """
     POST word 
     example: GET /word?word='dog'
     
-    return : 
+    return : json objec
     """
-    # GET request params
-    word = request.args['word']
-    
-    # insert word to table
-    # try except block
+    #print(f'sels: {request.json["sel"]}')
+    logger.info(f' user-selection : {request.json["sel"]}')
+    return jsonify({'message':'success'})
 
-    return jsonify({'word': word, 'result': 'success!'})
-
-
-
-app.run(port=5000)
+if __name__ == '__main__':
+    app.run(port=5000)
