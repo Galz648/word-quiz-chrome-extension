@@ -1,0 +1,95 @@
+2019-09-30 23:49:20,058 | INFO ->  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-09-30 23:49:49,970 | INFO ->  user-selection : async
+2019-09-30 23:49:49,978 | INFO -> 127.0.0.1 - - [30/Sep/2019 23:49:49] "POST /api?word=async HTTP/1.1" 200 -
+2019-09-30 23:51:38,171 | INFO ->  user-selection : actually your code can be improved like
+2019-09-30 23:51:38,175 | INFO -> 127.0.0.1 - - [30/Sep/2019 23:51:38] "POST /api?word=actually%20your%20code%20can%20be%20improved%20like HTTP/1.1" 200 -
+2019-09-30 23:51:47,414 | INFO ->  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-09-30 23:51:54,675 | INFO ->  user-selection : getDevices
+2019-09-30 23:51:54,684 | INFO -> 127.0.0.1 - - [30/Sep/2019 23:51:54] "POST /api?word=getDevices HTTP/1.1" 200 -
+2019-10-01 16:30:18,319 | INFO ->  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-10-01 16:30:44,901 | INFO ->  user-selection : onfigured
+2019-10-01 16:30:44,906 | INFO -> 127.0.0.1 - - [01/Oct/2019 16:30:44] "POST /api?word=onfigured HTTP/1.1" 200 -
+2019-10-01 16:33:19,656 | INFO ->  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-10-01 16:36:48,031 | INFO ->  user-selection : 
+2019-10-01 16:36:48,043 | INFO -> 127.0.0.1 - - [01/Oct/2019 16:36:48] "POST /api?word= HTTP/1.1" 200 -
+2019-10-01 16:43:28,065 | INFO ->  user-selection : 
+2019-10-01 16:43:28,066 | INFO -> 127.0.0.1 - - [01/Oct/2019 16:43:28] "POST /api?word= HTTP/1.1" 200 -
+2019-10-01 16:43:29,851 | INFO ->  user-selection : 
+2019-10-01 16:43:29,852 | INFO -> 127.0.0.1 - - [01/Oct/2019 16:43:29] "POST /api?word= HTTP/1.1" 200 -
+2019-10-01 16:43:35,502 | INFO ->  user-selection : 
+2019-10-01 16:43:35,503 | INFO -> 127.0.0.1 - - [01/Oct/2019 16:43:35] "POST /api?word= HTTP/1.1" 200 -
+2019-10-01 16:43:36,634 | INFO ->  user-selection : 
+2019-10-01 16:43:36,636 | INFO -> 127.0.0.1 - - [01/Oct/2019 16:43:36] "POST /api?word= HTTP/1.1" 200 -
+2019-10-01 16:44:03,200 | INFO ->  user-selection : 
+2019-10-01 16:44:03,202 | INFO -> 127.0.0.1 - - [01/Oct/2019 16:44:03] "POST /api?word= HTTP/1.1" 200 -
+2019-10-01 16:44:04,652 | INFO ->  user-selection : 
+2019-10-01 16:44:04,653 | INFO -> 127.0.0.1 - - [01/Oct/2019 16:44:04] "POST /api?word= HTTP/1.1" 200 -
+2019-10-01 16:44:05,164 | INFO ->  user-selection : 
+2019-10-01 16:44:05,166 | INFO -> 127.0.0.1 - - [01/Oct/2019 16:44:05] "POST /api?word= HTTP/1.1" 200 -
+2019-10-01 16:44:13,657 | INFO ->  user-selection : 
+2019-10-01 16:44:13,658 | INFO -> 127.0.0.1 - - [01/Oct/2019 16:44:13] "POST /api?word= HTTP/1.1" 200 -
+2019-10-01 16:44:14,009 | INFO ->  user-selection : stackoverflow
+2019-10-01 16:44:14,015 | INFO -> 127.0.0.1 - - [01/Oct/2019 16:44:14] "POST /api?word=stackoverflow HTTP/1.1" 200 -
+2019-10-01 16:44:14,132 | INFO ->  user-selection : flask output stackoverflow
+2019-10-01 16:44:14,134 | INFO -> 127.0.0.1 - - [01/Oct/2019 16:44:14] "POST /api?word=flask%20output%20stackoverflow HTTP/1.1" 200 -
+2019-10-01 16:44:14,255 | INFO ->  user-selection : flask output stackoverflow
+2019-10-01 16:44:14,256 | INFO -> 127.0.0.1 - - [01/Oct/2019 16:44:14] "POST /api?word=flask%20output%20stackoverflow HTTP/1.1" 200 -
+2019-10-01 16:44:17,705 | INFO ->  user-selection : 
+2019-10-01 16:44:17,705 | INFO -> 127.0.0.1 - - [01/Oct/2019 16:44:17] "POST /api?word= HTTP/1.1" 200 -
+2019-10-01 16:44:23,553 | INFO ->  user-selection : 
+2019-10-01 16:44:23,554 | INFO -> 127.0.0.1 - - [01/Oct/2019 16:44:23] "POST /api?word= HTTP/1.1" 200 -
+2019-10-01 16:45:23,154 | INFO ->  user-selection : 
+2019-10-01 16:45:23,155 | INFO -> 127.0.0.1 - - [01/Oct/2019 16:45:23] "POST /api?word= HTTP/1.1" 200 -
+2019-10-01 17:21:37,626 | INFO ->  user-selection : 
+2019-10-01 17:21:37,627 | INFO -> 127.0.0.1 - - [01/Oct/2019 17:21:37] "POST /api?word= HTTP/1.1" 200 -
+2019-10-01 17:29:14,022 | INFO ->  user-selection : 
+2019-10-01 17:29:14,024 | INFO -> 127.0.0.1 - - [01/Oct/2019 17:29:14] "POST /api?word= HTTP/1.1" 200 -
+2019-10-01 17:31:02,480 | INFO ->  user-selection : 
+2019-10-01 17:31:02,483 | INFO -> 127.0.0.1 - - [01/Oct/2019 17:31:02] "POST /api?word= HTTP/1.1" 200 -
+2019-10-01 19:16:43,808 | INFO ->  user-selection : 
+2019-10-01 19:16:43,809 | INFO -> 127.0.0.1 - - [01/Oct/2019 19:16:43] "POST /api?word= HTTP/1.1" 200 -
+2019-10-01 19:17:05,889 | INFO ->  user-selection : 
+2019-10-01 19:17:05,890 | INFO -> 127.0.0.1 - - [01/Oct/2019 19:17:05] "POST /api?word= HTTP/1.1" 200 -
+2019-10-01 19:19:46,656 | INFO ->  user-selection : 
+2019-10-01 19:19:46,656 | INFO -> 127.0.0.1 - - [01/Oct/2019 19:19:46] "POST /api?word= HTTP/1.1" 200 -
+2019-10-01 20:03:07,471 | INFO -> 127.0.0.1 - - [01/Oct/2019 20:03:07] "OPTIONS /api?word= HTTP/1.1" 200 -
+2019-10-01 20:03:07,489 | INFO ->  user-selection : 
+2019-10-01 20:03:07,490 | INFO -> 127.0.0.1 - - [01/Oct/2019 20:03:07] "POST /api?word= HTTP/1.1" 200 -
+2019-10-02 20:46:21,284:INFO:werkzeug ->  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-10-02 20:47:34,224:INFO:main_flask ->  user-selection : 
+2019-10-02 20:47:34,226:INFO:werkzeug -> 127.0.0.1 - - [02/Oct/2019 20:47:34] "POST /api?word= HTTP/1.1" 200 -
+2019-10-02 20:47:37,017:INFO:main_flask ->  user-selection : 
+2019-10-02 20:47:37,017:INFO:werkzeug -> 127.0.0.1 - - [02/Oct/2019 20:47:37] "POST /api?word= HTTP/1.1" 200 -
+2019-10-02 20:47:39,073:INFO:main_flask ->  user-selection : 
+2019-10-02 20:47:39,075:INFO:werkzeug -> 127.0.0.1 - - [02/Oct/2019 20:47:39] "POST /api?word= HTTP/1.1" 200 -
+2019-10-02 20:47:40,456:INFO:main_flask ->  user-selection : 
+2019-10-02 20:47:40,457:INFO:werkzeug -> 127.0.0.1 - - [02/Oct/2019 20:47:40] "POST /api?word= HTTP/1.1" 200 -
+2019-10-02 20:47:40,493:INFO:main_flask ->  user-selection : 
+2019-10-02 20:47:40,494:INFO:werkzeug -> 127.0.0.1 - - [02/Oct/2019 20:47:40] "POST /api?word= HTTP/1.1" 200 -
+2019-10-02 20:47:58,367:INFO:main_flask ->  user-selection : 
+2019-10-02 20:47:58,368:INFO:werkzeug -> 127.0.0.1 - - [02/Oct/2019 20:47:58] "POST /api?word= HTTP/1.1" 200 -
+2019-10-02 20:48:55,406:INFO:main_flask ->  user-selection : 
+2019-10-02 20:48:55,407:INFO:werkzeug -> 127.0.0.1 - - [02/Oct/2019 20:48:55] "POST /api?word= HTTP/1.1" 200 -
+2019-10-02 20:48:55,958:INFO:main_flask ->  user-selection : 
+2019-10-02 20:48:55,958:INFO:werkzeug -> 127.0.0.1 - - [02/Oct/2019 20:48:55] "POST /api?word= HTTP/1.1" 200 -
+2019-10-02 20:49:17,995:INFO:main_flask ->  user-selection : 
+2019-10-02 20:49:17,996:INFO:werkzeug -> 127.0.0.1 - - [02/Oct/2019 20:49:17] "POST /api?word= HTTP/1.1" 200 -
+2019-10-02 20:49:18,493:INFO:main_flask ->  user-selection : 
+2019-10-02 20:49:18,496:INFO:werkzeug -> 127.0.0.1 - - [02/Oct/2019 20:49:18] "POST /api?word= HTTP/1.1" 200 -
+2019-10-02 20:49:22,293:INFO:main_flask ->  user-selection : 
+2019-10-02 20:49:22,295:INFO:werkzeug -> 127.0.0.1 - - [02/Oct/2019 20:49:22] "POST /api?word= HTTP/1.1" 200 -
+2019-10-02 20:50:19,378:INFO:werkzeug ->  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-10-02 20:50:26,038:INFO:werkzeug ->  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-10-02 20:50:43,705:INFO:main_flask ->  user-selection : 
+2019-10-02 20:50:43,708:INFO:werkzeug -> 127.0.0.1 - - [02/Oct/2019 20:50:43] "POST /api?word= HTTP/1.1" 200 -
+2019-10-02 22:32:23,695:INFO:werkzeug ->  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-10-02 22:33:58,372:INFO:main_flask ->  user-selection : 
+2019-10-02 22:33:58,377:INFO:werkzeug -> 127.0.0.1 - - [02/Oct/2019 22:33:58] "POST /api?word= HTTP/1.1" 200 -
+2019-10-02 22:35:23,221:INFO:main_flask ->  user-selection : 
+2019-10-02 22:35:23,226:INFO:werkzeug -> 127.0.0.1 - - [02/Oct/2019 22:35:23] "POST /api?word= HTTP/1.1" 200 -
+2019-10-02 22:38:59,461:INFO:main_flask ->  user-selection : 
+2019-10-02 22:38:59,463:INFO:werkzeug -> 127.0.0.1 - - [02/Oct/2019 22:38:59] "POST /api?word= HTTP/1.1" 200 -
+2019-10-02 22:39:15,243:INFO:main_flask ->  user-selection : 
+2019-10-02 22:39:15,247:INFO:werkzeug -> 127.0.0.1 - - [02/Oct/2019 22:39:15] "POST /api?word= HTTP/1.1" 200 -
+2019-10-02 22:39:24,322:INFO:main_flask ->  user-selection : 
+2019-10-02 22:39:24,328:INFO:werkzeug -> 127.0.0.1 - - [02/Oct/2019 22:39:24] "POST /api?word= HTTP/1.1" 200 -
