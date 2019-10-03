@@ -38,12 +38,12 @@ def test_route():
 def post_word():
     """
     POST word 
-    example: GET /word?word='dog'
+    example: GET /api?word=dog
     
-    return : json objec
+    return : json object that contains ---
     """
-    #print(f'sels: {request.json["sel"]}')
     logger.info(f' user-selection : {request.json["sel"]}')
+    
     return jsonify({'message':'success'})
 
 if __name__ == '__main__':

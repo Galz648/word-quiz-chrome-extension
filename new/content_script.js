@@ -1,11 +1,12 @@
 // testing out rest api with python
 
-// sending selection resquest to server
-var PORT=5000;
-
+// variable declaration
+const PORT=5000;
+const _domain = `http://localhost:${PORT}/`; 
+// listening to mouseup event
 window.addEventListener('mouseup', () => {
     console.log('mouse up event triggered');
-    let sel = window.getSelection().toString();
+    const sel = window.getSelection().toString();
     const data = {sel};
     const options = {
         method : "POST",
@@ -14,8 +15,10 @@ window.addEventListener('mouseup', () => {
         },
         body: JSON.stringify(data)
     };
-
-    fetch(`http://localhost:${PORT}/api?word=${sel}`, options)
+    // sending selection resquest to server
+    fetch(`${_domain}api?word=${sel}`, options)
     .then(response => console.log(response))
     .catch(err => console.log(err));
 });
+
+

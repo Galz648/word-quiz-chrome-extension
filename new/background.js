@@ -1,3 +1,4 @@
+// DOESNT HAVE ANY USE YET 
 // background page
 // shortcut related code (look in manifest)
 command_shortcut = 'Open-Choice'
