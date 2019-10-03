@@ -17,6 +17,6 @@ class UserSelection(db.Model):                              # user-selection dat
     datestamp = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
     
     def __repr__(self):                                     # representation function
-        return f'id:{self.id}|word:{self.word}|occcurence:{self.occurence}|datestamp:{self.datestamp}'
+        return f'UserSelection(id:{self.id}, word:{self.word}, occurence:{self.occcurence}, datestamp:{self.datestamp})'
 
 

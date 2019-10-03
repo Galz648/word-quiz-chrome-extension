@@ -25,10 +25,6 @@ logger = logging.getLogger(__name__)
 #stream_handler.setFormatter(LOG_FORMAT)
 #stream_handler.setLevel(logging.INFO)
 
-@app.route('/arguments', methods=['GET'])   # gets arguments from the arguments list
-def test_route():
-   return jsonify({'message': 'true'})
-
 @app.route('/api', methods=['POST'])        # posts to api to look up word meaning 
 def post_word():
     
