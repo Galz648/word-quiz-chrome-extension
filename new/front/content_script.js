@@ -1,24 +1,12 @@
-// testing out rest api with python
-
-// variable declaration
-const PORT=5000;
-const _domain = `http://localhost:${PORT}/`; 
+ 
 // listening to mouseup event
 window.addEventListener('mouseup', () => {
     console.log('mouse up event triggered');
+    // modify this so the selection is non-empty
+    // modify this so the selection is triggered by a shortcut event
+    // or by clicking a thing that pops up on screen
     const sel = window.getSelection().toString();
-    const data = {sel};
-    const options = {
-        method : "POST",
-        headers:{
-            "Content-Type":"application/json"
-        },
-        body: JSON.stringify(data)
-    };
-    // sending selection resquest to server
-    fetch(`${_domain}api?word=${sel}`, options)
-    .then(response => console.log(response))
-    .catch(err => console.log(err));
+    // set a sel variable with the chrome storage api - 
+    // for the popup.js file to access
+    chrome.storage.sync.set({'sel': sel});
 });
-
-

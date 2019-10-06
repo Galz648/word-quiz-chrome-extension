@@ -1,1 +1,8 @@
 # README
+
+Priorities:
+    front-end:
+        1. create login with google on the popup.html
+
+    back-end:
+        1. populate the User db-table | implement logger with flask-logging

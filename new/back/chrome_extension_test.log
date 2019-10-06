@@ -1,0 +1,47 @@
+2019-10-06 02:37:55,455 - __main__ - INFO -  user-selection : 
+2019-10-06 02:38:04,164 - __main__ - INFO -  user-selection : 
+2019-10-06 02:38:27,798 - __main__ - INFO -  user-selection : 
+2019-10-06 02:38:37,301 - __main__ - INFO -  user-selection : This article
+2019-10-06 02:38:39,464 - __main__ - INFO -  user-selection : 
+2019-10-06 02:38:44,203 - __main__ - INFO -  user-selection : redirects
+2019-10-06 02:58:51,235 - __main__ - INFO -  user-selection : 
+2019-10-06 02:58:56,265 - __main__ - INFO -  user-selection : Nazareth
+2019-10-06 02:59:00,437 - __main__ - INFO -  user-selection : esus of Nazareth
+2019-10-06 03:11:59,621 - __main__ - INFO -  user-selection : central
+2019-10-06 03:12:12,558 - __main__ - INFO -  user-selection : Most
+2019-10-06 03:22:55,685:INFO:werkzeug ->  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-10-06 03:23:03,937:INFO:main_flask_test ->  user-selection : antiquity
+2019-10-06 03:23:03,946:INFO:werkzeug -> 127.0.0.1 - - [06/Oct/2019 03:23:03] "[37mPOST /api?word=antiquity HTTP/1.1[0m" 200 -
+2019-10-06 03:23:07,854:INFO:main_flask_test ->  user-selection : agree
+2019-10-06 03:23:07,859:INFO:werkzeug -> 127.0.0.1 - - [06/Oct/2019 03:23:07] "[37mPOST /api?word=agree HTTP/1.1[0m" 200 -
+2019-10-06 03:23:28,735:INFO:main_flask_test ->  user-selection : doctrines
+2019-10-06 03:23:28,739:INFO:werkzeug -> 127.0.0.1 - - [06/Oct/2019 03:23:28] "[37mPOST /api?word=doctrines HTTP/1.1[0m" 200 -
+2019-10-06 03:25:14,428:INFO:werkzeug ->  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-10-06 03:25:17,361:INFO:main_flask_test ->  user-selection : 
+2019-10-06 03:25:17,364:INFO:werkzeug -> 127.0.0.1 - - [06/Oct/2019 03:25:17] "[37mPOST /api?word= HTTP/1.1[0m" 200 -
+2019-10-06 03:25:23,011:INFO:main_flask_test ->  user-selection : ascended
+2019-10-06 03:25:23,014:INFO:werkzeug -> 127.0.0.1 - - [06/Oct/2019 03:25:23] "[37mPOST /api?word=ascended HTTP/1.1[0m" 200 -
+2019-10-06 03:25:37,917:INFO:main_flask_test ->  user-selection : eschatology
+2019-10-06 03:25:37,918:INFO:werkzeug -> 127.0.0.1 - - [06/Oct/2019 03:25:37] "[37mPOST /api?word=eschatology HTTP/1.1[0m" 200 -
+2019-10-06 07:06:44,176:INFO:werkzeug ->  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-10-06 07:11:47,732:INFO:werkzeug ->  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-10-06 07:22:16,076:INFO:werkzeug -> 127.0.0.1 - - [06/Oct/2019 07:22:16] "[1m[35mPOST /api/define_word?word=undefined HTTP/1.1[0m" 500 -
+2019-10-06 07:22:16,820:INFO:werkzeug -> 127.0.0.1 - - [06/Oct/2019 07:22:16] "[1m[35mPOST /api/add_word?word=undefined HTTP/1.1[0m" 500 -
+2019-10-06 07:22:21,175:INFO:werkzeug -> 127.0.0.1 - - [06/Oct/2019 07:22:21] "[1m[35mPOST /api/add_word?word=undefined HTTP/1.1[0m" 500 -
+2019-10-06 07:26:18,914:INFO:werkzeug ->  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-10-06 07:26:32,644:INFO:werkzeug -> 127.0.0.1 - - [06/Oct/2019 07:26:32] "[1m[35mPOST /api/define_word?word=undefined HTTP/1.1[0m" 500 -
+2019-10-06 07:26:34,757:INFO:werkzeug -> 127.0.0.1 - - [06/Oct/2019 07:26:34] "[1m[35mPOST /api/add_word?word=undefined HTTP/1.1[0m" 500 -
+2019-10-06 07:26:38,577:INFO:werkzeug -> 127.0.0.1 - - [06/Oct/2019 07:26:38] "[1m[35mPOST /api/define_word?word=undefined HTTP/1.1[0m" 500 -
+2019-10-06 07:27:46,819:INFO:werkzeug ->  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-10-06 07:27:58,781:INFO:werkzeug -> 127.0.0.1 - - [06/Oct/2019 07:27:58] "[1m[35mPOST /api/add_word?word=undefined HTTP/1.1[0m" 500 -
+2019-10-06 07:28:29,716:INFO:werkzeug -> 127.0.0.1 - - [06/Oct/2019 07:28:29] "[1m[35mPOST /api/add_word?word=undefined HTTP/1.1[0m" 500 -
+2019-10-06 07:30:25,035:INFO:werkzeug ->  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-10-06 07:30:38,778:INFO:root ->  define-word : ounded
+2019-10-06 07:30:38,789:INFO:werkzeug -> 127.0.0.1 - - [06/Oct/2019 07:30:38] "[37mPOST /api/define_word?word=ounded HTTP/1.1[0m" 200 -
+2019-10-06 07:30:40,546:INFO:root -> add-word : ounded
+2019-10-06 07:30:40,548:INFO:werkzeug -> 127.0.0.1 - - [06/Oct/2019 07:30:40] "[37mPOST /api/add_word?word=ounded HTTP/1.1[0m" 200 -
+2019-10-06 07:32:16,273:INFO:werkzeug ->  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-10-06 07:32:23,932:INFO:root ->  define-word : Jesus
+2019-10-06 07:32:23,936:INFO:werkzeug -> 127.0.0.1 - - [06/Oct/2019 07:32:23] "[37mPOST /api/define_word?word=Jesus HTTP/1.1[0m" 200 -
+2019-10-06 07:32:27,282:INFO:root -> add-word : Jesus
+2019-10-06 07:32:27,287:INFO:werkzeug -> 127.0.0.1 - - [06/Oct/2019 07:32:27] "[37mPOST /api/add_word?word=Jesus HTTP/1.1[0m" 200 -

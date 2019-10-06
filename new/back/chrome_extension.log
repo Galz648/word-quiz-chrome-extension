@@ -93,3 +93,10 @@
 2019-10-02 22:39:15,247:INFO:werkzeug -> 127.0.0.1 - - [02/Oct/2019 22:39:15] "POST /api?word= HTTP/1.1" 200 -
 2019-10-02 22:39:24,322:INFO:main_flask ->  user-selection : 
 2019-10-02 22:39:24,328:INFO:werkzeug -> 127.0.0.1 - - [02/Oct/2019 22:39:24] "POST /api?word= HTTP/1.1" 200 -
+2019-10-06 03:16:03,822:INFO:werkzeug ->  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-10-06 03:16:28,159:INFO:werkzeug ->  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-10-06 03:17:58,601:INFO:werkzeug ->  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-10-06 03:18:30,663:INFO:main_flask_test ->  user-selection : Virtually
+2019-10-06 03:18:30,674:INFO:werkzeug -> 127.0.0.1 - - [06/Oct/2019 03:18:30] "[37mPOST /api?word=Virtually HTTP/1.1[0m" 200 -
+2019-10-06 03:18:42,900:INFO:main_flask_test ->  user-selection : modern scholars
+2019-10-06 03:18:42,904:INFO:werkzeug -> 127.0.0.1 - - [06/Oct/2019 03:18:42] "[37mPOST /api?word=modern%20scholars HTTP/1.1[0m" 200 -

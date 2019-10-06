@@ -1,5 +1,5 @@
 {
-	"manifest_version": 2,
+    "manifest_version": 2,
     "name": "berlin-developement",
     "version": "1.0",
     "browser_action": {
@@ -25,17 +25,14 @@
     
     ],
         
-        "js": ["libraries/jquery/dist/jquery.min.js" ,"libraries/jquery/dist/jquery.js", "content_script.js"],
-        "css" : ["cs.css"]
+        "js": ["content_script.js"]
     }],
 "permissions": 
     [
     "activeTab",
-    "http://localhost/*"
+    "http://localhost/*",
+    "storage"
     ],
     "web_accessible_resources": [
-        "canvas.js",
-        "cs.css"
     ]
 }
-

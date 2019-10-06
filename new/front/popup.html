@@ -1,13 +1,20 @@
 <html>
 <head>
-<link rel="stylesheet" type="text/css" href="popup.css">
+<link href="bootstrap-4.0.0-dist/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+<link href="popup.css" type="text/css" rel="stylesheet">
 </head>
 
 <body>
+
 <input id="input-text" type="text"></input>
-<button id="input-button" type="button">define</button>
- 
+<button class="btn btn-danger" id="define-button" type="button">define-word</button>
+<button class="btn btn-dark" id="add-button" type="button">add-to-dictionary</button>
+
+<!-- added jquery for the bootstrap library, raised an error otherwise -->
+<!-- note that, for more extensive bootstrap functionality - a different jquery may need to be added. -->
+<script src="jquery/jquery-3.4.1.slim.min.js"></script>
 <script src="popup.js"></script>
+<script src="bootstrap-4.0.0-dist/js/bootstrap.min.js"></script>
 
 </body>
 
