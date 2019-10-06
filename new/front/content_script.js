@@ -8,5 +8,6 @@ window.addEventListener('mouseup', () => {
     const sel = window.getSelection().toString();
     // set a sel variable with the chrome storage api - 
     // for the popup.js file to access
+    
     chrome.storage.sync.set({'sel': sel});
 });

@@ -11,6 +11,7 @@ const add_button = document.getElementById("add-button");
 
 // get the selected text from the content script
 chrome.storage.sync.get('sel', (items) => {
+   // if sel exists in chrome.storage
    if (items.sel) {
       // log stored value to the console
       console.log(`sel: ${items.sel}`);
@@ -18,14 +19,12 @@ chrome.storage.sync.get('sel', (items) => {
       sel = items.sel;
       input_element.value = sel;
    }
+
    else {
       // if selection variable in storage not found
       console.log('item sel not found');
    }
 });
-
-
-
 
 define_button.addEventListener('click', (event) => {
    console.log('define button clicked');
