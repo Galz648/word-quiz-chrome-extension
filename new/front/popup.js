@@ -22,6 +22,7 @@ const add_button = document.getElementById("add-button");
 
 
 chrome.storage.sync.get('sel', (items) => {
+   // if sel exists in chrome.storage
    if (items.sel) {
       data.sel = items.sel;
       // log stored value to the console
@@ -30,6 +31,7 @@ chrome.storage.sync.get('sel', (items) => {
       // set the text inside the popup input element to the selected text
       input_element.value = data.sel;
    }
+
    else {
       // if selection variable in storage not found
       console.log('item sel not found');
