@@ -1,4 +1,6 @@
 from flask import Flask, jsonify, request   # flask web server
+# information about flask.request :
+# https://stackoverflow.com/questions/10434599/get-the-data-received-in-a-flask-request
 from flask_cors import CORS                 # flask imports
 from os import system                       
 import logging                              # logging import
@@ -10,7 +12,7 @@ app = Flask(__name__)                       # Flask app setup
 CORS(app)                                   # Cross-origin resource sharing
 
 
-LOG_FILE = 'chrome_extension_test.log'           # Create and configure logger
+LOG_FILE = 'chrome_extension_new.log'           # Create and configure logger
 LOG_FORMAT = '%(asctime)s:%(levelname)s:%(name)s -> %(message)s'
 logging.basicConfig(
             filename = LOG_FILE,
@@ -18,6 +20,7 @@ logging.basicConfig(
             format = LOG_FORMAT)
 
 logger = logging.getLogger()
+
 
 @app.route('/api/define_word', methods=['POST'])        # posts to api to look up word meaning
 def define_word():
@@ -29,9 +32,8 @@ def define_word():
     return:
 
     """
-    print(f'selection from define {request.json["sel"]}')                               
-    logger.info(f' define-word : {request.json["sel"]}') # log word to define
-    return jsonify({'message':'success'}) # returns json msg w/ 'success'
+
+    return jsonify({'message': 'success'}) # returns json msg w/ 'success'
 
 @app.route('/api/add_word', methods=['POST'])
 def add_word():
@@ -43,9 +45,9 @@ def add_word():
     return:
 
     """
-    print(f'selection from add {request.json["sel"]}')
-    logger.info(f'add-word : {request.json["sel"]}') # log word to add
-    return jsonify({'message':'success'}) # returns json msg w/ 'success'
+    logger.info(f'selection from add_word : {request.json}')
+    return jsonify({'message': 'success'}) # returns json msg w/ 'success'
+
 
 if __name__ == '__main__':
     app.run(port=5000)

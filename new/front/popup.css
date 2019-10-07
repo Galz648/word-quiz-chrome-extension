@@ -1,5 +1,20 @@
 html {
-    height: 200px;
-    width: 200px;
-    background-color: darkgrey;
+    height: auto;
+    width: auto;
+}
+
+#add-button {
+    margin: 5px 10px 10px 10px;
+}
+
+#define-button{
+    margin: 0px 10px 5px 10px;
+}
+
+#input-text-show{
+    margin: 10px 10px 10px 10px;
+}
+
+#output-text{
+    margin: 0px 10px 10px 10px;
 }

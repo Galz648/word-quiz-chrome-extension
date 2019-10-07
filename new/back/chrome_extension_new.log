@@ -1,0 +1,7 @@
+2019-10-07 02:00:07,897:INFO:werkzeug ->  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-10-07 02:00:24,255:INFO:root -> selection from add_word : {}
+2019-10-07 02:00:24,260:INFO:root -> jsnf : <Response 27 bytes [200 OK]>
+2019-10-07 02:00:24,263:INFO:werkzeug -> 127.0.0.1 - - [07/Oct/2019 02:00:24] "[37mPOST /api/add_word?word=although HTTP/1.1[0m" 200 -
+2019-10-07 02:07:35,771:INFO:werkzeug ->  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-10-07 02:08:19,238:INFO:root -> selection from add_word : {'sel': 'agree'}
+2019-10-07 02:08:19,242:INFO:werkzeug -> 127.0.0.1 - - [07/Oct/2019 02:08:19] "[37mPOST /api/add_word?word=agree HTTP/1.1[0m" 200 -
