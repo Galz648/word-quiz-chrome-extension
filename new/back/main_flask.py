@@ -26,9 +26,7 @@ logger = logging.getLogger()
 def define_word():
     """
     functionality:
-        define a word
-    query example:
-        /api/define_word?word="dog"
+        define a word using the wordnik api - not yet implemented
     return:
 
     """
@@ -40,11 +38,11 @@ def add_word():
     """
     functionality :
         add a word to the personal dictionary.
-    query example:
-        /api/add_word?word="dog"
     return:
 
     """
+    
+    # logg to file
     logger.info(f'selection from add_word : {request.json}')
     return jsonify({'message': 'success'}) # returns json msg w/ 'success'
 

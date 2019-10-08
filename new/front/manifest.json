@@ -1,21 +1,41 @@
 {
     "manifest_version": 2,
-    "name": "berlin-developement",
+    "name": "fuck-all",
     "version": "1.0",
     "browser_action": {
         "default_popup" : "popup.html"
     },
+    "permissions": 
+        [
+        "activeTab",
+        "tabs",
+        "http://localhost/*",
+        "storage",
+        "contextMenus"
+        ],
+        
     "background": {
         "scripts": ["background.js"],
-        "persistent" : true
+        "persistent" : false
     },
     "commands": {
-        "Open-Choice" : {
+        "Add-Word" : {
             "suggested_key" : {
-                "default" : "Ctrl+Shift+1"
+                "default" : "Ctrl+Shift+A"
             },
-            "description" : "special copy - adds to deck",
-            "global" : true
+            "description" : "Add Word"
+        },
+        "Select-Word" : {
+            "suggested_key" : {
+                "default" : "Ctrl+Shift+S"
+            },
+            "description" : "select Word"
+        },
+        "Define-Word" : {
+            "suggested_key" : {
+                "default" : "Ctrl+Shift+D"
+            },
+            "description" : "Define Word"
         }
     },
     "content_scripts": [
@@ -24,15 +44,6 @@
     "<all_urls>"
     
     ],
-        
         "js": ["content_script.js"]
-    }],
-"permissions": 
-    [
-    "activeTab",
-    "http://localhost/*",
-    "storage"
-    ],
-    "web_accessible_resources": [
-    ]
+    }]
 }
