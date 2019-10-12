@@ -5,13 +5,17 @@
     "browser_action": {
         "default_popup" : "popup.html"
     },
+    "web_accessible_resources": [
+        "book_icon.png"
+    ],
     "permissions": 
         [
         "activeTab",
         "tabs",
         "http://localhost/*",
         "storage",
-        "contextMenus"
+        "contextMenus",
+        "notifications"
         ],
         
     "background": {
@@ -21,7 +25,7 @@
     "commands": {
         "Add-Word" : {
             "suggested_key" : {
-                "default" : "Ctrl+Shift+A"
+                "default" : "Ctrl+Shift+F"
             },
             "description" : "Add Word"
         },
@@ -33,7 +37,7 @@
         },
         "Define-Word" : {
             "suggested_key" : {
-                "default" : "Ctrl+Shift+D"
+                "default" : "Ctrl+Shift+X"
             },
             "description" : "Define Word"
         }
@@ -45,9 +49,5 @@
     
     ],
         "js": ["content_script.js"]
-    }],
-    "web_accessible_resources":[
-        "canvas.html",
-        "frame.css"
-      ]
+    }]
 }
