@@ -1,0 +1,24 @@
+html {
+    height: auto;
+    width: auto;
+
+}
+body {
+    border: 1px solid white;
+    background-color: #333333;
+}
+#add-button {
+    margin: 5px 10px 10px 10px;
+}
+
+#define-button{
+    margin: 0px 10px 5px 10px;
+}
+
+#input-text-show{
+    margin: 10px 10px 10px 10px;
+}
+
+#output-text{
+    margin: 0px 10px 10px 10px;
+}
