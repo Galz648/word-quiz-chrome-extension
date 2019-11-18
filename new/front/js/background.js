@@ -2,30 +2,26 @@
 console.log('hello from bg script');
 
 const PORT=5000; // request related parameters
-const _domain = `http://localhost:${PORT}/`; // domain of api call
-const api_route = "api/"; // route of api call
+const _domain = `http://localhost:${PORT}/api/`; // domain of api call
 const action_add = 'add'; // method add word
 const action_define = 'define'; // method define word
-const APIadd = `${_domain}${api_route}${action_add}`; // url of api add-word method
-const APIdefine = `${_domain}${api_route}${action_define}`; // url of api define-word method
-const data = {}; // data to send to the backend
-const method_post = 'post';
+const method_post = 'POST';
 // notification options creation
 
 let notifOptionsAdd = {
     type: "basic",
     title: "Added Word",
-    iconUrl: ""
+    iconUrl: "/front/images/book_icon.png"
 }
 let notifOptionsDefine = {
     type: "basic",
     title: "Defined Word",
-    iconUrl: ""
+    iconUrl: "/front/images/book_icon.png"
 }
 let notifOptionsSelect = {
     type: "basic",
     title: "Select Word",
-    iconUrl: ""
+    iconUrl: "/front/images/book_icon.png"
 }
 // command shortcuts:
 const command_add = 'Add-Word';
@@ -99,11 +95,11 @@ function send_api_call(action, sel, method) {
     alert(`sel in send_api_call : ${sel}`);
     console.log(`action:${action}, sel: ${sel}, method: ${method}`);
     alert(`inside send_api_call - action:${action}, sel: ${sel}, method: ${method}`);
-    let APIaction = `${_domain}${api_route}${action}_word`;
-    console.log(`api call to : ${APIaction}`);
+    let APIaction = `${_domain}${action}?word=${sel}`;
+    alert(`api call to : ${APIaction}`);
     // POST request setup
     const options = {
-        method : "POST",
+        method : method,
         headers:{
             "Content-Type":"application/json"
         },

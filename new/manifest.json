@@ -9,8 +9,6 @@
     "browser_action": {
         "default_popup" : "front/templates/popup.html"
     },
-    "web_accessible_resources": [
-    ],
     "permissions": 
         [
         "activeTab",

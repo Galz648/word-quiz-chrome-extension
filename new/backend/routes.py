@@ -1,29 +1,50 @@
-from flask import jsonify, request   # flask web server
+from flask import jsonify, request, abort, Response # flask web server
 from backend import app, db
 from backend.models import UserSelection, handle_exists_UserSelection
-db.create_all()
+from wordnik import *
+from random import choices
+import json
+import requests
+from quiz import QuizCompleteSentence
+url = "https://similarwords.p.rapidapi.com/moar"
 
+headers = {
+    'x-rapidapi-host': "similarwords.p.rapidapi.com",
+    'x-rapidapi-key': "2673ac97d8msha4b25ea1e8cadb0p1ea850jsn733fcb764f76"
+    }
+
+
+
+db.create_all()
+apiUrl = 'http://api.wordnik.com/v4'
+apiKey = 'hoh3cbniehkwxjk0b93leoxieddrvll7cr63ay4sjvasj6eh6'
+client = swagger.ApiClient(apiKey, apiUrl)
+wordApi = WordApi.WordApi(client)
 # information about flask.request :
 # https://stackoverflow.com/questions/10434599/get-the-data-received-in-a-flask-request
 
-@app.route('/api/define_word', methods=['POST'])        # posts to api to look up word meaning
-def define_word():
+@app.route('/api/define', methods=['GET', 'POST'])        # posts to api to look up word meaning
+def define():
     """
     functionality:
         define a word using the wordnik api - not yet implemented
     return:
 
     """
+    print(request.url)
     # insert to database
     # return json formatted response
     print('view define_word')
-    print(request.mimetype)
-    print(request.data)
-    print(request.get_json())
+    word = request.args.get("word")
+    print(f'word argument: {word}')
+    example = wordApi.getTopExample(word)
+    example_similar = wordApi.getRelatedWords(word)[0]
+    print(f'word.text: {example.text}')
+    print(f'similar: {example_similar.words}')
     return jsonify({'message': 'success'}) # returns json msg w/ 'success'
 
-@app.route('/api/add_word', methods=['POST'])
-def add_word():
+@app.route('/api/add', methods=['POST'])
+def add():
     """
     functionality :
         add a word to the personal dictionary.
@@ -31,16 +52,34 @@ def add_word():
 
     """
     print('add word route called')
-    print(request.mimetype)
-    selected_word = request.get_json()['selection']
-    print(f'selected_word: {selected_word}')
+
     # add to table UserSelection
+    print(f'word argument: {request.args.get("word")}')
+    selected_word = request.args.get("word")
     handle_exists_UserSelection(selected_word)
     
     # json response
     return jsonify({'message': 'success'}) # returns json msg w/ 'success'
 
 
-@app.route('/api/get_words', methods=['GET'])
-def get_words():
+@app.route('/api/words', methods=['GET'])
+def words():
+    # break down query string
     return jsonify([_.serialize for _ in UserSelection.query.all()])
+
+
+
+
+@app.route('/api/word/quiz', methods=['GET'])
+def word_quiz():
+    word = request.args.get("word")
+    if not word:
+        abort(400) # bad request
+    
+    quiz = QuizCompleteSentence()
+    quiz_json = quiz.serialize(word)
+    return quiz_json
+
+@app.route('/api/words/quiz', methods=['GET'])
+def words_quiz():
+    return jsonify(['this', 'that'])

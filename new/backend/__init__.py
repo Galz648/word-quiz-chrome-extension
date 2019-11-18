@@ -19,6 +19,9 @@ logging.basicConfig(
 logger = logging.getLogger()
 """
 app = Flask(__name__)
+
+# run unit tests
+
 # flask-app setup
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False        # database setup
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db' # using sqlite db
@@ -28,4 +31,3 @@ CORS(app)
 db = SQLAlchemy(app)
 
 from backend import routes
-
