@@ -31,6 +31,8 @@ def define():
     return:
 
     """
+    # testing out the wordnik api
+    # remove later
     print(request.url)
     # insert to database
     # return json formatted response
@@ -82,4 +84,5 @@ def word_quiz():
 
 @app.route('/api/words/quiz', methods=['GET'])
 def words_quiz():
+    # tested out api call from front end
     return jsonify(['this', 'that'])

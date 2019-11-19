@@ -24,6 +24,7 @@ connotation test
     return: correct connotation, options of choice (connotations), sentence usage as hint
 """
 
+# A quiz consists of cards - when a quiz is instastantiated, top priority cards should be fetched for the upcoming quiz
 
 class QuizCompleteSentence:
     def __init__(self, questions=3, batch=None):
@@ -62,7 +63,6 @@ class QuizCompleteSentence:
             raise Exception("Response object is None")
         """
         response = self.getSimilarWordsResponse(word)
-        #print(response[0][0])
         return response
         # using wordnik api
 
