@@ -38,11 +38,6 @@ def define():
     # return json formatted response
     print('view define_word')
     word = request.args.get("word")
-    print(f'word argument: {word}')
-    example = wordApi.getTopExample(word)
-    example_similar = wordApi.getRelatedWords(word)[0]
-    print(f'word.text: {example.text}')
-    print(f'similar: {example_similar.words}')
     return jsonify({'message': 'success'}) # returns json msg w/ 'success'
 
 @app.route('/api/add', methods=['POST'])
@@ -53,10 +48,9 @@ def add():
     return:
 
     """
-    print('add word route called')
+    print('view add word')
 
     # add to table UserSelection
-    print(f'word argument: {request.args.get("word")}')
     selected_word = request.args.get("word")
     handle_exists_UserSelection(selected_word)
     
@@ -68,9 +62,6 @@ def add():
 def words():
     # break down query string
     return jsonify([_.serialize for _ in UserSelection.query.all()])
-
-
-
 
 @app.route('/api/word/quiz', methods=['GET'])
 def word_quiz():

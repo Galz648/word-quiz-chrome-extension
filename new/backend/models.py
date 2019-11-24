@@ -31,3 +31,10 @@ def handle_exists_UserSelection(selected_word):
         db.session.add(word_selection)
         print('row added')    
     db.session.commit()
+
+class Cards(db.Model):
+    def __init__(self):
+        interval = db.Column(db.Integer, default=1)
+        quizType = db.Column(db.String(20), nullable=False)
+        #cardObj = db.column(db.pickle)
+        

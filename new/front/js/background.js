@@ -1,8 +1,19 @@
  // background page
 console.log('hello from bg script');
+// firebase configuration
+const firebaseConfig = {
+    apiKey: "AIzaSyA0MAOZ42dLoU8Or4__Z8mhzeHzzgjvQW0",
+    authDomain: "word-quiz-chrome-1570215653744.firebaseapp.com",
+    databaseURL: "https://word-quiz-chrome-1570215653744.firebaseio.com",
+    projectId: "word-quiz-chrome-1570215653744",
+    storageBucket: "word-quiz-chrome-1570215653744.appspot.com",
+    messagingSenderId: "462615532572",
+    appId: "1:462615532572:web:5ae96e45eafc3590fffbd9",
+    measurementId: "G-LLBRKWFNSC"
+  };
+firebase.initializeApp(firebaseConfig); // initialize firebase object
+const db = firebase.database();
 
-const PORT=5000; // request related parameters
-const _domain = `http://localhost:${PORT}/api/`; // domain of api call
 const action_add = 'add'; // method add word
 const action_define = 'define'; // method define word
 const method_post = 'POST';
@@ -90,27 +101,26 @@ function createContextMenus(contextMenuArray) {
 // create contextMenus
 createContextMenus(contextMenuItems);
 
-function send_api_call(action, sel, method) {
-    console.log('send api call to backend...');
-    alert(`sel in send_api_call : ${sel}`);
-    console.log(`action:${action}, sel: ${sel}, method: ${method}`);
-    alert(`inside send_api_call - action:${action}, sel: ${sel}, method: ${method}`);
-    let APIaction = `${_domain}${action}?word=${sel}`;
-    alert(`api call to : ${APIaction}`);
-    // POST request setup
-    const options = {
-        method : method,
-        headers:{
-            "Content-Type":"application/json"
-        },
-        body: JSON.stringify({selection:sel})
- };
-    console.log(`options:`);
-    console.log(options);
-    // send API call
-    fetch(APIaction, options)
-    .then(response => console.log(response.json()))
-    .catch(err => alert(err));
+function saveWord(action, sel, method) {
+    // add selected word to firebase
+    sel = sel.toLowerCase();
+    //let card = buildCard(sel);
+    const ref = ref('words/' + sel);
+    db.ref.once('value', snapshot => {
+        if (snapshot.exists()) {
+            console.log('object exists!');
+        }
+        else {
+            // create the object as new
+            console.log('object is new!');
+            buildCard(sel);
+        }
+    });
+    db.ref('words/' + sel).update(
+        card
+        );
+    
+    console.log(`saved :${sel}`);
     createNotification(action, sel); // add notification
 
 
@@ -128,7 +138,7 @@ chrome.contextMenus.onClicked.addListener( (contextMenu) => {
     createNotification(contextMenu.menuItemId, contextMenu.selectionText);
     // api call
     console.log(`contextMenu Listener info: contextMenuId: ${contextMenu.menuItemId}, sel: ${contextMenu.selectionText}, method: ${method_post}`);
-    send_api_call(contextMenu.menuItemId, contextMenu.selectionText, method_post); // action, sel, method 
+    saveWord(contextMenu.menuItemId, contextMenu.selectionText, method_post); // action, sel, method 
 });
 
 // shortcut commands
@@ -149,20 +159,59 @@ chrome.commands.onCommand.addListener(command => {
         chrome.tabs.sendMessage(tabs[0].id, {action: command_action}, function(response) {
             console.log(`printing response from content script, command action  ${command_action}, response.sel ${response.sel}`);
             createNotification(command_action, response.sel);
-            send_api_call(command_action, response.sel, method_post);
+            saveWord(command_action, response.sel, method_post);
         });
-      });
+
+    });
 }); // listener
 
 // listen for button click message from popup.js
 chrome.runtime.onMessage.addListener(
     function(message, sender, sendResponse) {
+
+        if (sender.url.includes('popup.html')) {
         // message occurs when buttons are pressed in popup.html
         // handle api call
         console.log(`message from popup.js- action: ${message.action}, sel: ${message.sel}, method: ${message.method}`);
-        send_api_call(message.action, message.sel, message.method)
+        saveWord(message.action, message.sel, message.method);
         // create notification
-        createNotification(message.action, message.sel);
-        
-        sendResponse({message:'responded'});
+        sendResponse({'message':'success'});
+        //createNotification(message.action, message.sel);
+        }
+        else if (sender.url.includes('quiz.html')) {
+            console.log('messge from quiz.html');
+            buildQuiz().then(quiz => sendResponse({'message':quiz}));
+            console.log('message:');
+            console.log(message);
+        }
+        // incase you change the code, look at these resources
+        // https://stackoverflow.com/questions/54126343/how-to-fix-unchecked-runtime-lasterror-the-message-port-closed-before-a-respon
+        // https://github.com/mozilla/webextension-polyfill/issues/130
+        return true;
     });
+
+
+
+async function buildQuiz(cards=3) {
+    // construct a quiz upon user request
+    console.log('building Quiz...');
+    // 1. give me X amount of words/cards with the lowest interval scores, where X is given as a parameter
+    let wordsRef = db.ref("words");
+    var quiz = await wordsRef.orderByChild("interval").limitToLast(cards).once("value");
+    console.log(quiz instanceof Promise);
+    //
+    console.log(quiz.val());
+    return quiz;
+}
+
+function buildCard(word) {
+    // create a javascript object with starting data
+    const card = {
+        word : word,
+        easiness : 1.3,
+        repetitions : 0,
+        interval : 1
+    }
+    // return object
+    return card;
+}

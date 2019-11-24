@@ -11,7 +11,7 @@ complete the sentence quiz:
     have 1 main word and 3 similar words (either from an api or from the db)
 
     class functionality:
-        create a batch of questions for the user to answer, and once you get a response, you update the specific quiz table of the results, 
+        create a batch of cards for the user to answer, and once you get a response, you update the specific quiz table of the results, 
         and repeat the process until the number of asked quizes have been reached
 
     return: correct word, example sentence of correct word, options of choice (3 words)
@@ -27,9 +27,9 @@ connotation test
 # A quiz consists of cards - when a quiz is instastantiated, top priority cards should be fetched for the upcoming quiz
 
 class QuizCompleteSentence:
-    def __init__(self, questions=3, batch=None):
-        self.questions = questions
-        self.batch = self.questions if not batch else batch
+    def __init__(self, cards=3, batch=None):
+        self.cards = cards
+        self.batch = self.cards if not batch else batch
         # wordnik api setup
         self.client = swagger.ApiClient(wordnik_api_key, wordnik_api_URL)
         self.wordApi = WordApi.WordApi(self.client)
