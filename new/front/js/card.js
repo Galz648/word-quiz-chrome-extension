@@ -123,22 +123,16 @@ class Quiz {
     }
   }
 
-class QuizCompleteSentence extends Quiz{
-    Constructor(cardsNum,length, quizType) {
-        super(cardsNum, length, ref);
-
-        this.quizType = quizType;
-        this.ref = db.ref(ref)
-    }
-
-    quizLoop() {
-        // preparing for quiz
-        let loop = true;
-        var quiz = await this.ref.orderByChild("interval").limitToLast(cards).once("value");
-        // start player quiz game
-        while (loop === true) {
-            // 
-        }
-    }
+class QuizCompleteSentence{
+  Constructor(cardsNum=3, length=3) {
+      this.cardsNum = cardsNum;
+      this.length = length;
+      this.quizType = 'QuizCompleteSentence';
+      this.currentCardNumber = 0;
+      console.log(`currentNumber thing: ${this.currentCardNumber}`);
+  }
+  nextCard() {
+    // from this.data, return next card to show on screen
+    console.log('bulbul');
+  }
 }
-

@@ -8,23 +8,38 @@ flow of the program:
           // 2.3 go to step 2.1
     // 3. end quiz
     // 4. send quiz data to background script
-      
 */
-startButton = document.getElementById('startQuiz');
 
-class QuizCompleteSentence{
-  Constructor(cardsNum=3, length=3, quizType, data) {
-      this.cardsNum = cardsNum;
-      this.length = length;
-      this.quizType = quizType;
-      this.data = data;
-  }
-}
 
+// VARIABLE INITIALIZATION:
+let stack = [];
+let currentCard;
+let currentCardNumber = 0;
+let totalCardsNumber = 3;
+
+// GRAB FROM DOM
+startQuizButton = document.getElementById('startQuiz');
+endQuizButton = document.getElementById('stopQuiz');
+nextCardButton = document.getElementById('nextCard');
+cardP = document.getElementById('whichCard');
+// hide elements at first
+endQuizButton.style.display = "none";
+nextCardButton.style.display = "none";
+// EVENT CREATORS:
+// click to stop quiz
+endQuizButton.addEventListener("click", stopQuiz);
 // click to start quiz
-startButton.addEventListener("click", async function(){
-  // this is an event creator
+startQuizButton.addEventListener("click", startQuiz);
+// click to get next card
+nextCardButton.addEventListener("click", nextCard);
 
+async function startQuiz() {
+  // this is an event handler
+  // hide dom element
+  startQuizButton.style.display = "none";
+  // show button on dom
+  endQuizButton.style.display = "unset";
+  nextCardButton.style.display = "unset";
   console.log('quiz started!');
   // send message to background page to assemble a quiz
   
@@ -36,14 +51,36 @@ startButton.addEventListener("click", async function(){
   // handle events related to the quiz
   response = await eventHandler('buildQuiz');
   console.log(response);
-});
+  console.log(typeof response);
+  stack = response;
+  console.log('stack:');
+  console.log(stack);
+  nextCard();
+  // assign the first card
+
+
+}
+
+
+function nextCard() {
+  eventHandler('nextCard');
+}
+
+function stopQuiz() {
+  eventHandler('endQuiz');
+}
+
+function getRandomInt(max) {
+  return Math.floor(Math.random() * Math.floor(max));
+}
+
 
 function sendMessagePromise(item) {
   return new Promise((resolve, reject) => {
       chrome.runtime.sendMessage(item, response => {
           if(response) {
             console.log('resolved');
-              resolve(response);
+              resolve(response.message);
           } else {
               reject('Something wrong');
           }
@@ -62,29 +99,34 @@ async function eventHandler(eventMessage) {
     return await sendMessagePromise(message);
     
   }
+  if (eventMessage === 'nextCard') {
+    console.log('next card requested');
+    // log new card
+    currentCard = stack[currentCardNumber];
+    currentCardNumber += 1;
+    console.log(currentCard);
+    console.log(currentCardNumber);
+
+    // assigns random quality to each card from 0-5
+    let cardQuality = getRandomInt(5);
+    // insert quality into stack
+    currentCard.quality = cardQuality;
+    console.log(currentCard);
+    if (currentCardNumber === totalCardsNumber) {
+      // finish quiz
+      stopQuiz();
+    }
+  }
 
   if (eventMessage === 'endQuiz') {
     // documentation
-    chrome.runtime.sendMessage({message: 'evaluateQuiz'}, function(response) {
-      // response from backkgroud script
+    chrome.runtime.sendMessage({message: 'evaluateQuiz', quizData: stack}, function(response) {
+      console.log(stack);
+      // response from backgroud script
+      console.log('quiz stopped');
       console.log(response);
       
     });
   }
 }
 
-/*
-// sleep time expects milliseconds
-function sleep (time) {
-  return new Promise((resolve) => setTimeout(resolve, time));
-}
-
-
-function quizLoop() {
-sleep(5000)
-.then(
-
-  );
-
-}
-*/

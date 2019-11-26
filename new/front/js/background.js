@@ -194,12 +194,11 @@ chrome.runtime.onMessage.addListener(
                 buildQuiz().then(quiz => sendResponse({'message':quiz}));
             }
             else if (request.message == 'evaluateQuiz') {
-                sendResponse({message: 'evalutedQuiz'})
+                sendResponse({message: 'evalutedQuiz'});
+                console.log(request.quizData);
                 console.log('response sent');
-            }
-            else {
-                console.log('else');
-                sendResponse({complete: true})
+                // evaluate quiz
+                    // update quiz data to firebase
             }
         }
 
@@ -210,7 +209,12 @@ chrome.runtime.onMessage.addListener(
     });
 
 
-
+function quizToArray(quiz) {   
+    const arrayOfObj = Object.entries(quiz).map((e) => ( e[1] ));
+    console.log('arrayofObj:');
+    console.log(arrayOfObj);
+    return arrayOfObj;
+}
 async function buildQuiz(cards=3) {
     // construct a quiz upon user request
     console.log('building Quiz...');
@@ -219,6 +223,7 @@ async function buildQuiz(cards=3) {
     var quiz = await wordsRef.orderByChild("interval").limitToLast(cards).once("value");
     //
     console.log(quiz.val());
+    quiz = quizToArray(quiz.val());
     return quiz;
 }
  
@@ -235,11 +240,7 @@ function buildCard(word) {
     return card;
 }
 
-
 (function main() {
     // create contextMenus
     createContextMenus(contextMenuItems);
 })()
-
-
-
