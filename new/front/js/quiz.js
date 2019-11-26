@@ -120,8 +120,9 @@ async function eventHandler(eventMessage) {
 
   if (eventMessage === 'endQuiz') {
     // documentation
-    chrome.runtime.sendMessage({message: 'evaluateQuiz', quizData: stack}, function(response) {
+    chrome.runtime.sendMessage({message: 'evaluateQuiz', quizArray: stack}, function(response) {
       console.log(stack);
+
       // response from backgroud script
       console.log('quiz stopped');
       console.log(response);
@@ -129,4 +130,3 @@ async function eventHandler(eventMessage) {
     });
   }
 }
-

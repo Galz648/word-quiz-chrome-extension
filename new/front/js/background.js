@@ -17,7 +17,6 @@ const firebaseConfig = {
 
 const action_add = 'add'; // method add word
 const action_define = 'define'; // method define word
-const method_post = 'POST';
 // notification options creation
 
 let notifOptionsAdd = {
@@ -63,6 +62,7 @@ const contextMenuItems = [
     contextMenuItemAdd,
     contextMenuItemSelect
     ];
+    
 function createNotification(action, selection) {
     let notifOptions;
     if (action == 'add') {
@@ -101,7 +101,7 @@ function createContextMenus(contextMenuArray) {
 }
 
 
-function wordSelected(action, sel, method) {
+function wordSelected(action, sel) {
     // add selected word to firebase
     sel = sel.toLowerCase();
     const ref = db.ref('words/' + sel);
@@ -111,6 +111,7 @@ function wordSelected(action, sel, method) {
             console.log('object exists!');
             var card = snapshot.val();
             // make call to update card
+
             // send update query
             ref.update(card);
             
@@ -145,8 +146,8 @@ chrome.contextMenus.onClicked.addListener( (contextMenu) => {
     // create notification
     createNotification(contextMenu.menuItemId, contextMenu.selectionText);
     // api call
-    console.log(`contextMenu Listener info: contextMenuId: ${contextMenu.menuItemId}, sel: ${contextMenu.selectionText}, method: ${method_post}`);
-    wordSelected(contextMenu.menuItemId, contextMenu.selectionText, method_post); // action, sel, method 
+    console.log(`contextMenu Listener info: contextMenuId: ${contextMenu.menuItemId}, sel: ${contextMenu.selectionText}`);
+    wordSelected(contextMenu.menuItemId, contextMenu.selectionText); // action, sel, method 
 });
 
 // shortcut commands
@@ -167,7 +168,7 @@ chrome.commands.onCommand.addListener(command => {
         chrome.tabs.sendMessage(tabs[0].id, {action: command_action}, function(response) {
             console.log(`printing response from content script, command action  ${command_action}, response.sel ${response.sel}`);
             createNotification(command_action, response.sel);
-            wordSelected(command_action, response.sel, method_post);
+            wordSelected(command_action, response.sel);
         });
 
     });
@@ -194,11 +195,18 @@ chrome.runtime.onMessage.addListener(
                 buildQuiz().then(quiz => sendResponse({'message':quiz}));
             }
             else if (request.message == 'evaluateQuiz') {
-                sendResponse({message: 'evalutedQuiz'});
+
                 console.log(request.quizData);
                 console.log('response sent');
                 // evaluate quiz
-                    // update quiz data to firebase
+                let quizArrayNew = evaluateQuiz(request.quizArray);
+                console.log('quizArrayNew:');
+                console.log(quizArrayNew);
+                // update the associated card data in quiz, inside firebase
+                updateQuiz(quizArrayNew);
+                console.log('updated');
+                sendResponse({message: 'evalutedQuiz'});
+
             }
         }
 
@@ -208,22 +216,85 @@ chrome.runtime.onMessage.addListener(
         return true;
     });
 
+function apiCall(word, url) {
+    // call the url given, associted with an api service, get data back
+    
+    // placeholder for api data
+    let data = {data: ["first", "second", "third"]};
+    // entangle the data given above, to the card object
+    return data;
+}
+function evaluateCard(easiness, repetitions, interval, quality, word) {
+    // update according to spaced repetition algorithm
+        easiness = Math.max(1.3, easiness + 0.1 - (5.0 - quality) * (0.08 + (5.0 - quality) * 0.02))
+        if (quality < 3) {
+            epetitions = 0;
+        }
+        else {
+            repetitions += 1;
+        }
+        if (repetitions == 1) {
+            interval = 1
+        } 
+        else if (repetitions == 2) {
+            interval = 6;
+        }
+        else {
+            interval *= easiness;
+        }
+    
+        interval = Math.ceil(interval);
+        return {interval: interval, easiness: easiness, repetitions: repetitions, quality: quality, word: word}
+}
 
-function quizToArray(quiz) {   
-    const arrayOfObj = Object.entries(quiz).map((e) => ( e[1] ));
-    console.log('arrayofObj:');
-    console.log(arrayOfObj);
-    return arrayOfObj;
+function updateQuiz(quiz) {
+    console.log('updateQuiz Called');
+    console.log('quiz in updateQuiz:');
+    console.log(quiz);
+    quiz.forEach(card => updateCard(card));
+}
+function updateCard(card) {
+    console.log(`updating card: ${card.word}`);
+    const ref = db.ref('words/' + card.word);
+    ref.update(card);
+}
+function evaluateQuiz(quizArray) {
+    // for each card in quiz
+    console.log('quizArray');
+    console.log(quizArray);
+    // update cards parameters according to the spaced repetition algorithm
+    const quizArrayNew = quizArray.map(card => evaluateCard(card.easiness, card.repetitions, card.interval, card.quality, card.word));
+    console.log('yo');
+    return quizArrayNew;
+}
+function quizToArray(quiz) {
+    // for each entry in quiz --> get the value and store it in the array of objects
+    // store object in arrayofObj
+    // return arrayofObj
+    //new CardCompleteSentence(e[1].word, e[1].easiness, e[1].repetitions, e[1].interval
+    // populate arrayofObj
+
+
+    ///let arrayOfObjs = [];
+    //for (let [key, value] of Object.entries(quiz)) {}
+    const arrayOfObjs = Object.entries(quiz).map((e) => ( e[1] ));
+    console.log('arrayofObjs:');
+    console.log(arrayOfObjs);
+    return arrayOfObjs;
 }
 async function buildQuiz(cards=3) {
     // construct a quiz upon user request
     console.log('building Quiz...');
+
     // 1. give me X amount of words/cards with the lowest interval scores, where X is given as a parameter
     let wordsRef = db.ref("words");
     var quiz = await wordsRef.orderByChild("interval").limitToLast(cards).once("value");
-    //
+    console.log('quiz.val():');
     console.log(quiz.val());
+
+    // break apart the given quiz, and create card class instances for each card
     quiz = quizToArray(quiz.val());
+    // return the array containing those cards
     return quiz;
 }
  
@@ -232,10 +303,15 @@ function buildCard(word) {
     // create a javascript object with starting data
     const card = {
         word : word,
-        easiness : 1.3,
+        easiness : 2.5,
         repetitions : 0,
         interval : 1
     }
+    // api call to get data about the specified word
+    data = apiCall(word, 'url://example');
+    card.data = data;
+    console.log('card data:');
+    console.log(card.data);
     // return object
     return card;
 }
