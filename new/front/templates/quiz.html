@@ -1,19 +1,33 @@
 <html>
 <head>
 <link href="../bootstrap-4.0.0-dist/css/bootstrap.min.css" type="text/css" rel="stylesheet">
-<link rel="stylesheet" href="../css/quiz.css" type="text/css">
+
 </head>
 <body>
-
 <button id="startQuiz">click to start quiz</button>
-<button id="stopQuiz">click to stop quiz</button>
-<button id="nextCard">click for next Card</button>
-<p id="whichCard"></p>
+<button id="endQuiz">click to stop quiz</button>
+
+<div class="example">
+  <button id="prevExample">prev Example</button>
+  <button id="nextExample">next Example</button>
+  <p id="exampleText"></p>
+</div>
+
+<div class="options">
+  <button class="option" id="option0"></button>
+  <button class="option" id="option1"></button>
+  <button class="option" id="option2"></button>
+  <button class="option" id="option3"></button>
+</div>
+<button id="submitCard">Submit and move to next card</button>
+
+
+<button id="nextCard">Next Card</button>
   <script src="../node_modules/scrollreveal/dist/scrollreveal.min.js"></script>
   <script src="../jquery/jquery-3.4.1.slim.min.js"></script>
   <script src="../bootstrap-4.0.0-dist/js/bootstrap.min.js"></script>
   <script src="../node_modules/@mojs/core/build/mo.min.js"></script>
-
+  <link rel="stylesheet" href="../css/quiz.css" type="text/css">
   <script src="../js/quiz.js"></script>
 </body>
 </html>

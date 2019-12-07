@@ -5,56 +5,64 @@
     "options_ui": {
         "page": "front/templates/options.html",
         "open_in_tab": false
-      },
-    "browser_action": {
-        "default_popup" : "front/templates/popup.html"
     },
-    "permissions": 
-        [
+    "browser_action": {
+        "default_popup": "front/templates/credentials.html"
+    },
+    "permissions": [
         "activeTab",
         "tabs",
-        "http://localhost/*",
         "storage",
         "contextMenus",
-        "notifications"
-        ],
-        
+        "notifications",
+        "identity"
+    ],
     "background": {
-        "page" : "front/templates/background.html"
+        "page": "front/templates/background.html"
     },
     "commands": {
-        "Add-Word" : {
-            "suggested_key" : {
-                "default" : "Ctrl+Shift+F"
+        "Add-Word": {
+            "suggested_key": {
+                "default": "Ctrl+Shift+F"
             },
-            "description" : "Add Word"
+            "description": "Add Word"
         },
-        "Select-Word" : {
-            "suggested_key" : {
-                "default" : "Ctrl+Shift+S"
+        "Select-Word": {
+            "suggested_key": {
+                "default": "Ctrl+Shift+S"
             },
-            "description" : "select Word"
+            "description": "select Word"
         },
-        "Define-Word" : {
-            "suggested_key" : {
-                "default" : "Ctrl+Shift+X"
+        "Define-Word": {
+            "suggested_key": {
+                "default": "Ctrl+Shift+X"
             },
-            "description" : "Define Word"
+            "description": "Define Word"
         },
-        "Open-window" : {
-            "suggested_key" : {
-                "default" : "Ctrl+Shift+W"
+        "Open-window": {
+            "suggested_key": {
+                "default": "Ctrl+Shift+W"
             },
-            "description" : "Open Window"
+            "description": "Open Window"
         }
     },
     "content_scripts": [
-    {
-    "matches": [
-    "<all_urls>"
-    
+        {
+            "matches": [
+                "<all_urls>"
+            ],
+            "js": [
+                "front/js/content_script.js"
+            ]
+        }
     ],
-        "js": ["front/js/content_script.js"]
-    }],
-    "content_security_policy": "script-src 'self' https://www.gstatic.com/ https://*.firebaseio.com https://www.googleapis.com; object-src 'self'; connect-src 'self' wss://*.firebaseio.com;"
+    "content_security_policy": "script-src 'self' https://wordquiz-api-heroku.herokuapp.com https://www.gstatic.com/ https://*.firebaseio.com https://www.googleapis.com; object-src 'self'; connect-src https://wordquiz-api-heroku.herokuapp.com https://*.googleapis.com 'self' wss://*.firebaseio.com;",
+    "oauth2": {
+        "client_id": "462615532572-s7957vgvk9o83ihpjrk9qfouio4ndobj.apps.googleusercontent.com",
+        "scopes": [
+            "https://www.googleapis.com/auth/userinfo.email",
+            "https://www.googleapis.com/auth/userinfo.profile"
+        ]
+    },
+    "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAtMCVc0egtP3Qs5u+Wd8eazyvgxsiYUB3RS4n/8W+a6LSqwR9QxTbfVJP9CxY3lHSB68lWnN7k3AyXd/JRgbVSjDpj8P+nfl9UT0YS4OMTxKgoiDNeMEhsRAD0w7LmqNBL9Sbh82Pez0nbzoV4nTPuEpan9YkO+Oe0O3byOpEbV7v4kQgDPMfGbtubJEZrBJd67efZSZgScRsPuYPl2Rwf3t/n/N5Hfz/u+O0nIW9tTiKxaTpCLVZ63gNvTbLQ8NNlYsnPidqZ1ZN/EMqxViExy1GqWDUaPX842I2CpWtePhfmEqQAnv7ClNXc2oTQ2dGditRFe4boRdSlDm0MOzXdQIDAQAB"
 }

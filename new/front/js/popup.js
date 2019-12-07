@@ -10,6 +10,7 @@ const define_button = document.getElementById("define-button");
 const add_button = document.getElementById("add-button");
 const options_button = document.getElementById("go-to-options");
 const quiz_window = document.getElementById("quiz-window");
+const signOutBtn = document.getElementById("sign-out-btn");
 
 // get the selected text from the content script
 chrome.storage.sync.get('sel', (items) => {
@@ -21,7 +22,7 @@ chrome.storage.sync.get('sel', (items) => {
       input_element.value = sel; // set the text inside the popup input element to the selected text
    }
    else {
-      
+
       console.log('item sel not found'); // if selection variable in storage not found
    }
 });
@@ -45,24 +46,24 @@ define_button.addEventListener('click', (event) => {
    console.log('define button clicked!');
    // send message to background page
    console.log('define button to background');
-   chrome.runtime.sendMessage({action:action_define, sel: sel, method:'post'}, function(response) {
+   chrome.runtime.sendMessage({ action: action_define, sel: sel, method: 'post' }, function (response) {
       console.log('response from bg page');
       console.log(response);
-    });
-   
+   });
+
 });
 // // message background when add_button is clicked
 add_button.addEventListener('click', (event) => {
    // set popup
    //window.location.href="add.html";
-   
+
    console.log('add button clicked');
    console.log('add button to background');
-    // send message to background page
-   chrome.runtime.sendMessage({action:action_add, sel: sel, method:'post'}, function(response) {
+   // send message to background page
+   chrome.runtime.sendMessage({ action: action_add, sel: sel, method: 'post' }, function (response) {
       console.log('response from background');
       console.log(response);
-    });
+   });
 });
 
 
@@ -78,3 +79,4 @@ quiz_window.addEventListener('click', (event) => {
    // Open quiz Page
    window.open(chrome.runtime.getURL('front/templates/quiz.html'));
 });
+

@@ -18,36 +18,19 @@ body{
   box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
 }
 
-.card h3{
-  font-weight: 600;
-  color: blue;
-  width: auto;
+.options {
+  display:none;
+}
+.example {
+display:none;
 }
 
-.card-1{
-      background-repeat: no-repeat;
-    background-position: right;
-    background: #FC2D79;
+#endQuiz {
+  display:none;
 }
-
-.card-2{
-
-      background-repeat: no-repeat;
-    background-position: right;
-    
+#nextCard {
+  display:none;
 }
-
-.card-3{
-      background-repeat: no-repeat;
-    background-position: right;
-    
-}
-
-.container {
-  background-color: #222;
-  height: 400px;
-}
-
-.close-button:hover{
-  cursor :pointer;
+#submitCard {
+  display:none;
 }
